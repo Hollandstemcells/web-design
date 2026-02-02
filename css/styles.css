@@ -632,6 +632,32 @@ footer {
     opacity: 0.6;
 }
 
+/* Footnote Styles */
+.footnote-container {
+    text-align: center;
+    font-family: 'Times New Roman', serif;
+    font-size: 10pt;
+    color: #333;
+    margin-top: 2rem;
+    padding: 0 1rem;
+}
+
+.footnote-line {
+    border: none !important;
+    height: 2mm !important;
+    background-color: #003366 !important;
+    /* Marine Blue */
+    color: #003366 !important;
+    /* For compatibility */
+    margin: 1rem 0 !important;
+    opacity: 1 !important;
+}
+
+.footnote-text {
+    line-height: 1.5;
+}
+
+
 /* Animation Classes */
 .fade-in {
     opacity: 0;
