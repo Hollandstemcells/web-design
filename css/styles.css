@@ -234,7 +234,7 @@ header.scrolled .nav-links a:hover {
 .side-nav {
     position: fixed;
     right: 2rem;
-    top: 10rem;
+    top: 6rem;
     z-index: 999;
     transition: opacity 0.3s ease;
 }
