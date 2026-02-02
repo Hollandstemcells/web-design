@@ -41,6 +41,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Side Navigation Active State Tracking
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.side-nav-link');
+
+    const navObserverOptions = {
+        threshold: 0.3,
+        rootMargin: '-100px 0px -66% 0px'
+    };
+
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.getAttribute('id');
+                
+                // Remove active class from all links
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Add active class to current section link
+                const activeLink = document.querySelector(`.side-nav-link[data-section="${sectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    }, navObserverOptions);
+
+    // Observe all sections
+    sections.forEach(section => {
+        navObserver.observe(section);
+    });
+
     // Contact Form Handling
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {

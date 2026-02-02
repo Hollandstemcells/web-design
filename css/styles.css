@@ -230,6 +230,74 @@ header.scrolled .nav-links a:hover {
     color: var(--color-secondary);
 }
 
+/* Side Navigation */
+.side-nav {
+    position: fixed;
+    right: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    transition: opacity 0.3s ease;
+}
+
+.side-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.side-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary);
+    background: transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.side-nav-link:hover .nav-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.side-nav-link:hover .nav-dot {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    transform: scale(1.2);
+}
+
+.side-nav-link.active .nav-dot {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 4px rgba(44, 165, 141, 0.2);
+}
+
+.side-nav-link.active .nav-label {
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--color-secondary);
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -572,6 +640,11 @@ footer {
 /* Responsive */
 @media (max-width: 900px) {
     .nav-links {
+        display: none;
+    }
+
+    /* Hide side navigation on mobile/tablet */
+    .side-nav {
         display: none;
     }
 
