@@ -29,17 +29,24 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeElements.forEach(el => observer.observe(el));
 
     // Smooth Scroll for Anchors
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    for (let anchor of anchorLinks) {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
+            const href = this.getAttribute('href');
+
+            // Only handle internal links that have a target on this page
+            // and skip plain "#" links
+            if (href.startsWith('#') && href !== '#') {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
-    });
+    }
 
     // Side Navigation Active State Tracking
     const sections = document.querySelectorAll('section[id]');
@@ -54,12 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const sectionId = entry.target.getAttribute('id');
-                
+
                 // Remove active class from all links
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                 });
-                
+
                 // Add active class to current section link
                 const activeLink = document.querySelector(`.side-nav-link[data-section="${sectionId}"]`);
                 if (activeLink) {

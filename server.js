@@ -41,7 +41,20 @@ app.post('/api/contact', (req, res) => {
     });
 });
 
-// Fallback route to serve index.html
+// Redirect /privacy to /privacy-policy.html
+app.get('/privacy', (req, res) => {
+    res.redirect('/privacy-policy.html');
+});
+
+// Routes for specific HTML pages
+const pages = ['about', 'faq', 'leadership', 'patient-guide', 'research', 'technology', 'privacy-policy'];
+pages.forEach(page => {
+    app.get(`/${page}(.html)?`, (req, res) => {
+        res.sendFile(path.join(__dirname, `${page}.html`));
+    });
+});
+
+// Fallback route to serve index.html for any other unmatched routes
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
