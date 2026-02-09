@@ -41,13 +41,17 @@ app.post('/api/contact', (req, res) => {
     });
 });
 
-// Redirect /privacy to /privacy-policy.html
+// Redirects
 app.get('/privacy', (req, res) => {
     res.redirect('/privacy-policy.html');
 });
 
+app.get('/news', (req, res) => {
+    res.sendFile(path.join(__dirname, 'news.html'));
+});
+
 // Routes for specific HTML pages
-const pages = ['about', 'faq', 'leadership', 'patient-guide', 'research', 'technology', 'privacy-policy'];
+const pages = ['about', 'faq', 'leadership', 'patient-guide', 'research', 'technology', 'privacy-policy', 'news'];
 pages.forEach(page => {
     app.get(`/${page}(.html)?`, (req, res) => {
         res.sendFile(path.join(__dirname, `${page}.html`));
