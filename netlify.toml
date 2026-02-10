@@ -8,12 +8,48 @@
   status = 200
 
 [[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/leadership"
+  to = "/leadership.html"
+  status = 200
+
+[[redirects]]
+  from = "/patient-guide"
+  to = "/patient-guide.html"
+  status = 200
+
+[[redirects]]
+  from = "/research"
+  to = "/research.html"
+  status = 200
+
+[[redirects]]
+  from = "/faq"
+  to = "/faq.html"
+  status = 200
+
+[[redirects]]
+  from = "/technology"
+  to = "/technology.html"
+  status = 200
+
+[[redirects]]
   from = "/privacy"
   to = "/privacy-policy.html"
   status = 301
+
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/privacy-policy.html"
+  status = 200
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
   force = false
+
