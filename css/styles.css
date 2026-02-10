@@ -745,9 +745,10 @@ footer {
 
     .nav-links .btn-primary {
         margin-left: 0 !important;
-        margin-top: 1rem;
+        margin-top: 2rem;
         width: 80%;
         text-align: center;
+        padding: 1rem 2rem !important;
     }
 
     /* Hide side navigation on mobile/tablet */
