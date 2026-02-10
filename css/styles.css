@@ -185,8 +185,14 @@ nav {
 }
 
 .logo-img {
-    height: 50px;
+    height: 60px;
     width: auto;
+    object-fit: contain;
+    transition: height 0.3s ease;
+}
+
+header.scrolled .logo-img {
+    height: 50px;
 }
 
 .logo-text-group {
@@ -735,6 +741,13 @@ footer {
     .nav-links a {
         font-size: 1.2rem;
         color: var(--color-light) !important;
+    }
+
+    .nav-links .btn-primary {
+        margin-left: 0 !important;
+        margin-top: 1rem;
+        width: 80%;
+        text-align: center;
     }
 
     /* Hide side navigation on mobile/tablet */
